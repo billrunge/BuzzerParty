@@ -1,5 +1,4 @@
-﻿const baseUrl = window.location.origin;
-let jwt;
+﻿let jwt;
 let gameCode;
 let user;
 let game;
@@ -61,7 +60,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: baseUrl + "/api/Buzz",
+            url: `${window.location.origin}/api/Buzz`,
             contentType: "application/json; charset=utf-8",
             data: '{ "JWT":"' + jwt + '" }',
             dataType: "json",
@@ -80,7 +79,7 @@ $(document).ready(function () {
     function resetStatus(callback) {
         $.ajax({
             type: "POST",
-            url: baseUrl + "/api/GetQuestionStatus",
+            url: `${window.location.origin}/api/GetQuestionStatus`,
             contentType: "application/json; charset=utf-8",
             data: '{"JWT":"' + jwt + '"}',
             dataType: "json",
@@ -167,7 +166,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: baseUrl + "/api/MakeQuestionAnswerable",
+            url: `${window.location.origin}/api/MakeQuestionAnswerable`,
             contentType: "application/json; charset=utf-8",
             data: '{"JWT":"' + jwt + '"}',
             dataType: "json",
@@ -190,9 +189,9 @@ $(document).ready(function () {
     function createQuestion(callback) {
         $.ajax({
             type: "POST",
-            url: baseUrl + "/api/CreateQuestion",
+            url: `${window.location.origin}/api/CreateQuestion`,
             contentType: "application/json; charset=utf-8",
-            data: '{"JWT":"' + jwt + '"}',
+            data: `{"JWT":"${jwt}}`,
             dataType: "json",
             success: function (msg) {
                 if (typeof callback === "function") {
