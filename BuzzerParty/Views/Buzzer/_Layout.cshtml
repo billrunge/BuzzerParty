@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model BuzzerParty.Models.IndexViewModel
+@{
+    ViewData["Title"] = @Model.AppName;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,7 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="css/site.css" rel="stylesheet" />
 
-    <title>BuzzerParty</title>
+    <title>@Model.AppName</title>
 </head>
 <body>
     <div class="container">

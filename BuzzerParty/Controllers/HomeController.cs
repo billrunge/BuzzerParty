@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BuzzerParty.Models;
+using System;
 
 namespace BuzzerParty.Controllers
 {
@@ -18,7 +19,7 @@ namespace BuzzerParty.Controllers
         {
             Models.IndexViewModel indexViewModel = new Models.IndexViewModel()
             {
-                AppName = "BuzzerParty",
+                AppName = Environment.GetEnvironmentVariable("APP_NAME") ?? "Buzzerparty",
                 NameLength = 10,
                 GameCodeLength = 5
                 

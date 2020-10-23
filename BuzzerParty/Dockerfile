@@ -10,6 +10,7 @@ ENV SQL_USER_NAME="sa"
 ENV SQL_PASSWORD="Test1234!"
 ENV SQL_TIMEOUT="30"
 ENV SQL_PORT="1433"
+ENV APP_NAME="Freddie Party"
 ENV JWT_KEY="0mgooh3w20lpO0PxI54RbpVoua0qJy0IoROGarNJm3aJU9qJJIONVF1OvPVL9DsyzG7ftBbjThFEYV5hkcp1u4l7uduyt3ntHeOhdrozgnFF8ygjG4S5IKGmvvVQ6NVY"
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
