@@ -15,17 +15,22 @@ namespace BuzzerParty.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateGameViewModel createGameViewModel)
         {
+            SqlConnectionString sqlConnectionString = new SqlConnectionString();
+            string connectionString = sqlConnectionString.GetSqlConnectionString();
             Game gameHelper = new Game()
             {
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
+                SqlConnectionString = connectionString
             };
 
             User userHelper = new User()
             {
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
+                SqlConnectionString = connectionString
             };
 
-            Database database = new Database() { SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING") };
+            Database database = new Database() 
+            { 
+                SqlConnectionString = connectionString
+            };
 
             JWT jwtHelper = new JWT();
 

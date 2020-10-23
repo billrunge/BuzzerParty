@@ -15,10 +15,11 @@ namespace BuzzerParty.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
+            SqlConnectionString sqlConnectionString = new SqlConnectionString();
             Question questionHelper = new Question() 
             { 
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING") 
-            };
+                SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
+        };
 
             JWT jwtHelper = new JWT();
 

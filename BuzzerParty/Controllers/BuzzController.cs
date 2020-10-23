@@ -21,21 +21,24 @@ namespace BuzzerParty.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
+            SqlConnectionString sqlConnectionString = new SqlConnectionString();
+            string connectionString = sqlConnectionString.GetSqlConnectionString();
+
             Question questionHelper = new Question()
             {
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
+                SqlConnectionString = connectionString
             };
 
             User userHelper = new User()
             {
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
+                SqlConnectionString = connectionString
             };
 
             JWT jwtHelper = new JWT();
 
             Buzz buzzHelper = new Buzz()
             {
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
+                SqlConnectionString = connectionString
             };
 
             int user = jwtHelper.GetUserFromJWT(gameSession.JWT);

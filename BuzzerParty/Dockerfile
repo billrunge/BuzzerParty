@@ -4,7 +4,12 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-ENV SQL_CONNECTION_STRING="Server=172.17.0.2,1433;Initial Catalog=Jeopardivity;Persist Security Info=False;User ID=sa;Password=Test1234!;Connection Timeout=30;"
+ENV SQL_SERVER="172.17.0.2"
+ENV SQL_DATABASE_NAME="Jeopardivity"
+ENV SQL_USER_NAME="sa"
+ENV SQL_PASSWORD="Test1234!"
+ENV SQL_TIMEOUT="30"
+ENV SQL_PORT="1433"
 ENV JWT_KEY="0mgooh3w20lpO0PxI54RbpVoua0qJy0IoROGarNJm3aJU9qJJIONVF1OvPVL9DsyzG7ftBbjThFEYV5hkcp1u4l7uduyt3ntHeOhdrozgnFF8ygjG4S5IKGmvvVQ6NVY"
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build

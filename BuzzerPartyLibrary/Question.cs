@@ -78,7 +78,7 @@ namespace BuzzerPartyLibrary
         }
         public async Task MakeQuestionAnswerableAsync(int question)
         {
-            using (SqlConnection connection = new SqlConnection() { ConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING") })
+            using (SqlConnection connection = new SqlConnection() { ConnectionString = SqlConnectionString })
             {
                 await connection.OpenAsync();
                 string sql = @"

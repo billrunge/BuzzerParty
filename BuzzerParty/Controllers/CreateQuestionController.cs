@@ -27,10 +27,11 @@ namespace BuzzerParty.Controllers
         {
             JWT jwtHelper = new JWT();
             game = jwtHelper.GetGameFromJWT(gameSession.JWT);
+            SqlConnectionString sqlConnectionString = new SqlConnectionString();
 
             Question questionHelper = new Question()
             {
-                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
+                SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
             };
 
             question = await questionHelper.CreateQuestionAsync(game);
