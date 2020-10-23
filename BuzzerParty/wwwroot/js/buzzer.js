@@ -19,7 +19,7 @@ const buttonMode = {
 $(document).ready(function () {
 
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl(baseUrl + "/SignalR")
+        .withUrl(`${window.location.origin}/SignalR`)
         .configureLogging(signalR.LogLevel.Error)
         .build();
 
