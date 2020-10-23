@@ -8,7 +8,7 @@ namespace BuzzerParty.Controllers
     [ApiController]
     public class DatabaseCleanupController : ControllerBase
     {
-        // GET api/Buzz
+        // GET api/DatabaseCleanup
         [HttpGet]
         public async Task Get()
         {
