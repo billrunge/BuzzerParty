@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using BuzzerPartyLibrary;
-using System.Net.Http;
 using BuzzerParty.Models;
 using Microsoft.AspNetCore.SignalR;
 
@@ -13,10 +12,8 @@ namespace BuzzerParty.Controllers
     [ApiController]
     public class CreateQuestionController : ControllerBase
     {
-        private static readonly HttpClient _client = new HttpClient();
         private static int game;
         private static int question;
-        private static string jwt;
         private readonly IHubContext<BuzzerSignalR> _hubContext;
 
         public CreateQuestionController(IHubContext<BuzzerSignalR> hubContext)
@@ -26,12 +23,10 @@ namespace BuzzerParty.Controllers
 
         // POST api/CreateQuestion
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateQuestionViewModel createQuestionViewModel)
+        public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
-            jwt = createQuestionViewModel.JWT;
-
             JWT jwtHelper = new JWT();
-            game = jwtHelper.GetGameFromJWT(jwt);
+            game = jwtHelper.GetGameFromJWT(gameSession.JWT);
 
             Question questionHelper = new Question()
             {

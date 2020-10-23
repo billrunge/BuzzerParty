@@ -1,6 +1,6 @@
 namespace BuzzerParty.Models
 {
-    public class CreateQuestionViewModel
+    public class GameSession
     {
         public string JWT { get; set; }
     }

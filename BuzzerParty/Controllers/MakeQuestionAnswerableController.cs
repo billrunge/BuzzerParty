@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -13,10 +12,8 @@ namespace BuzzerParty.Controllers
     [ApiController]
     public class MakeQuestionAnswerableController : ControllerBase
     {
-        private static readonly HttpClient _client = new HttpClient();
         private static int game;
         private static int question;
-        private static string jwt;
         private readonly IHubContext<BuzzerSignalR> _hubContext;
 
         public MakeQuestionAnswerableController(IHubContext<BuzzerSignalR> hubContext)
@@ -26,17 +23,15 @@ namespace BuzzerParty.Controllers
 
         // POST api/MakeQuestionAnswerable
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] MakeQuestionAnswerableViewModel makeQuestionAnswerableViewModel)
+        public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
-            jwt = makeQuestionAnswerableViewModel.JWT;
-
             JWT jwtHelper = new JWT();
             Question questionHelper = new Question()
             {
                 SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")
             };
 
-            game = jwtHelper.GetGameFromJWT(jwt);
+            game = jwtHelper.GetGameFromJWT(gameSession.JWT);
 
             question = await questionHelper.GetQuestionFromGameAsync(game);
 

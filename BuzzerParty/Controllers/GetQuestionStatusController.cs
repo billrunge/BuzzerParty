@@ -13,16 +13,24 @@ namespace BuzzerParty.Controllers
     {
         // POST api/GetQuestionStatus
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] GetQuestionStatusViewModel getQuestionStatusViewModel)
+        public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
-            string jwt = getQuestionStatusViewModel.JWT;
+            Question questionHelper = new Question() 
+            { 
+                SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING") 
+            };
 
-            Question questionHelper = new Question() { SqlConnectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING") };
             JWT jwtHelper = new JWT();
 
-            Question.QuestionStatus questionStatus = await questionHelper.GetQuestionStatusFromUserAsync(jwtHelper.GetUserFromJWT(jwt));
+            Question.QuestionStatus questionStatus = 
+                await questionHelper.GetQuestionStatusFromUserAsync(jwtHelper.GetUserFromJWT(gameSession.JWT));
 
-            var returnObject = new { Question = questionStatus.question, Answerable = questionStatus.answerable, UserBuzzed = questionStatus.userBuzzed };
+            var returnObject = new 
+            { 
+                Question = questionStatus.question, 
+                Answerable = questionStatus.answerable, 
+                UserBuzzed = questionStatus.userBuzzed 
+            };
 
             return (ActionResult)new OkObjectResult(JsonConvert.SerializeObject(returnObject));
         }

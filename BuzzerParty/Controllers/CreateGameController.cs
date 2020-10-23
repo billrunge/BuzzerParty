@@ -36,18 +36,16 @@ namespace BuzzerParty.Controllers
             string gameCode = gameHelper.GenerateGameCode(5);
             int game = await gameHelper.CreateGameAsync(gameCode);
 
-            int user = await userHelper.CreateUserAsync(userName, game, true);
 
-            string jwt = await jwtHelper.GenerateJwtAsync(user,
+            string jwt = await jwtHelper.GenerateJwtAsync(
+                            await userHelper.CreateUserAsync(userName, game, true),
                             game,
                             userName,
                             gameCode,
                             true,
                             Environment.GetEnvironmentVariable("JWT_KEY"));
 
-            var returnObject = new { JWT = jwt };
-
-            return new OkObjectResult(JsonConvert.SerializeObject(returnObject));
+            return new OkObjectResult(JsonConvert.SerializeObject(new { JWT = jwt }));
         }
     }
 }
