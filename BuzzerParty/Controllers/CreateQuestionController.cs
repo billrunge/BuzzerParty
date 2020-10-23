@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using BuzzerPartyLibrary;
 using System.Net.Http;
-using System.Text;
 using BuzzerParty.Models;
 using Microsoft.AspNetCore.SignalR;
 
@@ -43,20 +39,11 @@ namespace BuzzerParty.Controllers
             };
 
             question = await questionHelper.CreateQuestionAsync(game);
-            //string baseUrl = $"{this.Request.Scheme}://{this.Request.Host}";
-            //await SendMessageAsync(baseUrl);
             await _hubContext.Clients.All.SendAsync($"Game{game}", "NewQuestion");
 
             var returnObject = new { Question = question };
 
             return (ActionResult)new OkObjectResult(JsonConvert.SerializeObject(returnObject));
         }
-        //private static async Task SendMessageAsync(string baseUrl)
-        //{
-        //    StringContent content = new StringContent(JsonConvert.SerializeObject(
-        //        new { UserID = $"Game{game}", Message = "NewQuestion" }), Encoding.UTF8, "application/json");
-
-        //    await _client.PostAsync($"{baseUrl}/SignalR/SendMessage", content);
-        //}
     }
 }

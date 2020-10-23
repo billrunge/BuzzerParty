@@ -1,5 +1,3 @@
-using System;
-
 namespace BuzzerParty.Models
 {
     public class IndexViewModel
