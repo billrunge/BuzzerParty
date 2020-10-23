@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuzzerParty", "BuzzerParty\BuzzerParty.csproj", "{E606ACD0-F090-4D45-86BE-695F53675085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzerPartyLibrary", "BuzzerPartyLibrary\BuzzerPartyLibrary.csproj", "{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E606ACD0-F090-4D45-86BE-695F53675085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E606ACD0-F090-4D45-86BE-695F53675085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E606ACD0-F090-4D45-86BE-695F53675085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E606ACD0-F090-4D45-86BE-695F53675085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC1F2AD7-7E60-499A-B763-C1EEB14CD22C}
+	EndGlobalSection
+EndGlobal

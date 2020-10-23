@@ -1,0 +1,13 @@
+﻿@model BuzzerParty.Models.IndexViewModel
+@{
+    ViewData["Title"] = @Model.AppName;
+}
+
+<div id="TitleHeader">Welcome to @Model.AppName!</div>
+<br />
+<div id="ErrorArea" class="error-area"></div>
+<form>
+    <input type="text" class="user-name input-form" id="UserName" maxlength="@Model.NameLength" placeholder="NAME">
+    <input type="text" class="gamecode input-form" id="GameCode" maxlength="@Model.GameCodeLength" placeholder="GAME CODE">
+    <button type="submit" id="CreateButton" class="create-button"></button>
+</form>
