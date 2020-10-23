@@ -10,7 +10,7 @@ namespace BuzzerParty.Controllers
     {
         // GET api/DatabaseCleanup
         [HttpGet]
-        public async Task Get()
+        public async Task<string> Get()
         {
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
             Database database = new Database() 
@@ -19,6 +19,7 @@ namespace BuzzerParty.Controllers
             };
 
             await database.DropAllTablesAsync();
+            return "Database Cleaned Successfully";
         }
     }
 }
