@@ -191,7 +191,7 @@ $(document).ready(function () {
             type: "POST",
             url: `${window.location.origin}/api/CreateQuestion`,
             contentType: "application/json; charset=utf-8",
-            data: `{"JWT":"${jwt}}`,
+            data: '{"JWT":"' + jwt + '"}',
             dataType: "json",
             success: function (msg) {
                 if (typeof callback === "function") {

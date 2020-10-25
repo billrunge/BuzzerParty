@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using BuzzerPartyLibrary;
 using BuzzerParty.Models;
 using Microsoft.AspNetCore.SignalR;
+using BuzzerPartyInterfaces;
 
 namespace BuzzerParty.Controllers
 {
@@ -25,11 +26,11 @@ namespace BuzzerParty.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
-            JWT jwtHelper = new JWT();
+            IJWT jwtHelper = new JWT();
             game = jwtHelper.GetGameFromJWT(gameSession.JWT);
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
 
-            Question questionHelper = new Question()
+           IQuestion questionHelper = new Question()
             {
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
             };

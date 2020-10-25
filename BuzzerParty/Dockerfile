@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-ENV SQL_SERVER="172.17.0.2"
+ENV SQL_SERVER="172.17.0.4"
 ENV SQL_DATABASE_NAME="Jeopardivity"
 ENV SQL_USER_NAME="sa"
 ENV SQL_PASSWORD="Test1234!"

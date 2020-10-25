@@ -1,11 +1,12 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using BuzzerPartyInterfaces;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class JWT
+    public class JWT : IJWT
     {
         public async Task<string> GenerateJwtAsync(int user, int game, string userName, string gameCode, bool isAlex, string key)
         {

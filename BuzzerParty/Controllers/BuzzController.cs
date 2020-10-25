@@ -5,6 +5,7 @@ using BuzzerPartyLibrary;
 using Newtonsoft.Json;
 using BuzzerParty.Models;
 using Microsoft.AspNetCore.SignalR;
+using BuzzerPartyInterfaces;
 
 namespace BuzzerParty.Controllers
 {
@@ -24,25 +25,25 @@ namespace BuzzerParty.Controllers
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
             string connectionString = sqlConnectionString.GetSqlConnectionString();
 
-            Question questionHelper = new Question()
+            IQuestion questionHelper = new Question()
             {
                 SqlConnectionString = connectionString
             };
 
-            User userHelper = new User()
+            IUser userHelper = new User()
             {
                 SqlConnectionString = connectionString
             };
 
-            JWT jwtHelper = new JWT();
+            IJWT jwtHelper = new JWT();
 
-            Buzz buzzHelper = new Buzz()
+            IBuzz buzzHelper = new Buzz()
             {
                 SqlConnectionString = connectionString
             };
 
             int user = jwtHelper.GetUserFromJWT(gameSession.JWT);
-            Question.QuestionStatus questionStatus = 
+            IQuestionStatus questionStatus = 
                 await questionHelper.GetQuestionStatusFromUserAsync(jwtHelper.GetUserFromJWT(gameSession.JWT));
 
             await buzzHelper.BuzzAsync(user, questionStatus.question);

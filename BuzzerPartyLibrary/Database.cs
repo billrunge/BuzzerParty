@@ -1,9 +1,10 @@
-﻿using System.Data.SqlClient;
+﻿using BuzzerPartyInterfaces;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class Database
+    public class Database : IDatabase
     {
         public string SqlConnectionString { get; set; }
         public async Task DropAllTablesAsync()

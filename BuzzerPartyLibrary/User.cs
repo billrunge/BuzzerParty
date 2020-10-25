@@ -1,13 +1,13 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using BuzzerPartyInterfaces;
 
 namespace BuzzerPartyLibrary
 {
-    public class User
+    public class User : IUser
     {
         public string SqlConnectionString { get; set; }
-
         public async Task<int> CreateUserAsync(string name, int game, bool isAlex)
         {
             using (SqlConnection connection = new SqlConnection() { ConnectionString = SqlConnectionString })

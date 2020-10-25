@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using BuzzerPartyInterfaces;
 using BuzzerPartyLibrary;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +14,7 @@ namespace BuzzerParty.Controllers
         public async Task<string> Get()
         {
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
-            Database database = new Database() 
+            IDatabase database = new Database() 
             { 
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString() 
             };

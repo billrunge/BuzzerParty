@@ -1,10 +1,11 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using BuzzerPartyInterfaces;
 
 namespace BuzzerPartyLibrary
 {
-    public class Buzz
+    public class Buzz : IBuzz
     {
         public string SqlConnectionString { get; set; }
         public async Task BuzzAsync(int user, int question)

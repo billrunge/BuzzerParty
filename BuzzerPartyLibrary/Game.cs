@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BuzzerPartyInterfaces;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class Game
+    public class Game : IGame
     {
         public string SqlConnectionString { get; set; }
         public async Task<int> GetGameFromCodeAsync(string gameCode)

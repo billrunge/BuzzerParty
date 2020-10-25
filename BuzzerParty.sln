@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuzzerParty", "BuzzerParty\BuzzerParty.csproj", "{E606ACD0-F090-4D45-86BE-695F53675085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzerPartyLibrary", "BuzzerPartyLibrary\BuzzerPartyLibrary.csproj", "{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuzzerPartyLibrary", "BuzzerPartyLibrary\BuzzerPartyLibrary.csproj", "{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzerPartyInterfaces", "BuzzerPartyInterfaces\BuzzerPartyInterfaces.csproj", "{81B374DE-B848-43CE-B353-522DDE0F7929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05B8F322-ED2B-40E9-A262-5E6E9B1CAD50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B374DE-B848-43CE-B353-522DDE0F7929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B374DE-B848-43CE-B353-522DDE0F7929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B374DE-B848-43CE-B353-522DDE0F7929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B374DE-B848-43CE-B353-522DDE0F7929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

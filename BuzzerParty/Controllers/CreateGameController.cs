@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using BuzzerPartyLibrary;
 using BuzzerParty.Models;
+using BuzzerPartyInterfaces;
 
 namespace BuzzerParty.Controllers
 {
@@ -17,22 +18,22 @@ namespace BuzzerParty.Controllers
         {
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
             string connectionString = sqlConnectionString.GetSqlConnectionString();
-            Game gameHelper = new Game()
+            IGame gameHelper = new Game()
             {
                 SqlConnectionString = connectionString
             };
 
-            User userHelper = new User()
+            IUser userHelper = new User()
             {
                 SqlConnectionString = connectionString
             };
 
-            Database database = new Database() 
+            IDatabase database = new Database() 
             { 
                 SqlConnectionString = connectionString
             };
 
-            JWT jwtHelper = new JWT();
+            IJWT jwtHelper = new JWT();
 
             string userName = createGameViewModel.Name;
 

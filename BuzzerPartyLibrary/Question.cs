@@ -1,20 +1,15 @@
-﻿using System;
+﻿using BuzzerPartyInterfaces;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class Question
+    public class Question : IQuestion
     {
         public string SqlConnectionString { get; set; }
-
-        public struct QuestionStatus
-        {
-            public int currentQuestion, questionCount, question;
-            public bool answerable, userBuzzed;
-        }
-        public async Task<QuestionStatus> GetQuestionStatusFromUserAsync(int user)
+        public async Task<IQuestionStatus> GetQuestionStatusFromUserAsync(int user)
         {
             using (SqlConnection connection = new SqlConnection() { ConnectionString = SqlConnectionString })
             {
@@ -39,7 +34,7 @@ namespace BuzzerPartyLibrary
 
                 SqlDataReader dataReader = await command.ExecuteReaderAsync();
 
-                QuestionStatus questionStatus = new QuestionStatus();
+                IQuestionStatus questionStatus = new QuestionStatus();
 
                 if (dataReader.HasRows)
                 {
@@ -112,5 +107,13 @@ namespace BuzzerPartyLibrary
                 return (int)await command.ExecuteScalarAsync();
             }
         }
+    }
+    public class QuestionStatus : IQuestionStatus
+    {
+        public int currentQuestion { get; set; }
+        public int questionCount { get; set; }
+        public int question { get; set; }
+        public bool answerable { get; set; }
+        public bool userBuzzed { get; set; }
     }
 }

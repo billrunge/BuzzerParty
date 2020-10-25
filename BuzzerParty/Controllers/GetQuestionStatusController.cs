@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using BuzzerPartyLibrary;
 using BuzzerParty.Models;
+using BuzzerPartyInterfaces;
 
 namespace BuzzerParty.Controllers
 {
@@ -23,7 +24,7 @@ namespace BuzzerParty.Controllers
 
             JWT jwtHelper = new JWT();
 
-            Question.QuestionStatus questionStatus = 
+            IQuestionStatus questionStatus = 
                 await questionHelper.GetQuestionStatusFromUserAsync(jwtHelper.GetUserFromJWT(gameSession.JWT));
 
             var returnObject = new 
