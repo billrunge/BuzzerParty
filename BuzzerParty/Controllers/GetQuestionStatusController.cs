@@ -17,21 +17,21 @@ namespace BuzzerParty.Controllers
         public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
-            Question questionHelper = new Question() 
-            { 
+            Question questionHelper = new Question()
+            {
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
-        };
+            };
 
             JWT jwtHelper = new JWT();
 
-            IQuestionStatus questionStatus = 
+            IQuestionStatus questionStatus =
                 await questionHelper.GetQuestionStatusFromUserAsync(jwtHelper.GetUserFromJWT(gameSession.JWT));
 
-            var returnObject = new 
-            { 
-                Question = questionStatus.question, 
-                Answerable = questionStatus.answerable, 
-                UserBuzzed = questionStatus.userBuzzed 
+            var returnObject = new
+            {
+                Question = questionStatus.question,
+                Answerable = questionStatus.answerable,
+                UserBuzzed = questionStatus.userBuzzed
             };
 
             return (ActionResult)new OkObjectResult(JsonConvert.SerializeObject(returnObject));

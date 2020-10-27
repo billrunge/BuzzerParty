@@ -42,7 +42,6 @@ namespace BuzzerParty.Controllers
             string gameCode = gameHelper.GenerateGameCode(5);
             int game = await gameHelper.CreateGameAsync(gameCode);
 
-
             string jwt = await jwtHelper.GenerateJwtAsync(
                             await userHelper.CreateUserAsync(userName, game, true),
                             game,
