@@ -5,7 +5,7 @@ using BuzzerPartyInterfaces;
 
 namespace BuzzerPartyLibrary
 {
-    public class Buzz : IBuzz
+    public class MsSqlBuzz : IBuzz
     {
         public string SqlConnectionString { get; set; }
         public async Task BuzzAsync(int user, int question)

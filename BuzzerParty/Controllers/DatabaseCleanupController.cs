@@ -14,7 +14,7 @@ namespace BuzzerParty.Controllers
         public async Task<string> Get()
         {
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
-            IDatabase database = new Database() 
+            IDatabase database = new MsSqlDatabase() 
             { 
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString() 
             };

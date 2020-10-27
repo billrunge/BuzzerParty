@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class Game : IGame
+    public class MsSqlGame : IGame
     {
         public string SqlConnectionString { get; set; }
         public async Task<int> GetGameFromCodeAsync(string gameCode)

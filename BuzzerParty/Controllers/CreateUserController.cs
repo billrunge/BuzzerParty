@@ -21,12 +21,12 @@ namespace BuzzerParty.Controllers
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
             string connectionString = sqlConnectionString.GetSqlConnectionString();
 
-            IGame gameHelper = new Game()
+            IGame gameHelper = new MsSqlGame()
             {
                 SqlConnectionString = connectionString
             };
 
-            IUser userHelper = new User()
+            IUser userHelper = new MsSqlUser()
             {
                 SqlConnectionString = connectionString
             };

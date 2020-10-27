@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class Question : IQuestion
+    public class MySqlQuestion : IQuestion
     {
         public string SqlConnectionString { get; set; }
         public async Task<IQuestionStatus> GetQuestionStatusFromUserAsync(int user)

@@ -30,7 +30,7 @@ namespace BuzzerParty.Controllers
             game = jwtHelper.GetGameFromJWT(gameSession.JWT);
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
 
-           IQuestion questionHelper = new Question()
+           IQuestion questionHelper = new MsSqlQuestion()
             {
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
             };

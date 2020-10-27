@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BuzzerPartyLibrary
 {
-    public class Database : IDatabase
+    public class MsSqlDatabase : IDatabase
     {
         public string SqlConnectionString { get; set; }
         public async Task DropAllTablesAsync()

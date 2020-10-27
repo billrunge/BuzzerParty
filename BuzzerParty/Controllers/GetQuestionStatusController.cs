@@ -17,7 +17,7 @@ namespace BuzzerParty.Controllers
         public async Task<IActionResult> Post([FromBody] GameSession gameSession)
         {
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
-            Question questionHelper = new Question()
+            MsSqlQuestion questionHelper = new MsSqlQuestion()
             {
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
             };

@@ -27,7 +27,7 @@ namespace BuzzerParty.Controllers
         {
             IJWT jwtHelper = new JWT();
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
-            IQuestion questionHelper = new Question()
+            IQuestion questionHelper = new MsSqlQuestion()
             {
                 SqlConnectionString = sqlConnectionString.GetSqlConnectionString()
             };

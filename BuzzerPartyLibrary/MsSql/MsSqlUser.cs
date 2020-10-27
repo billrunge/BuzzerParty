@@ -5,7 +5,7 @@ using BuzzerPartyInterfaces;
 
 namespace BuzzerPartyLibrary
 {
-    public class User : IUser
+    public class MsSqlUser : IUser
     {
         public string SqlConnectionString { get; set; }
         public async Task<int> CreateUserAsync(string name, int game, bool isAlex)

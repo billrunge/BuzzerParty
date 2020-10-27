@@ -25,19 +25,19 @@ namespace BuzzerParty.Controllers
             SqlConnectionString sqlConnectionString = new SqlConnectionString();
             string connectionString = sqlConnectionString.GetSqlConnectionString();
 
-            IQuestion questionHelper = new Question()
+            IQuestion questionHelper = new MsSqlQuestion()
             {
                 SqlConnectionString = connectionString
             };
 
-            IUser userHelper = new User()
+            IUser userHelper = new MsSqlUser()
             {
                 SqlConnectionString = connectionString
             };
 
             IJWT jwtHelper = new JWT();
 
-            IBuzz buzzHelper = new Buzz()
+            IBuzz buzzHelper = new MsSqlBuzz()
             {
                 SqlConnectionString = connectionString
             };
