@@ -46,9 +46,9 @@ namespace BuzzerParty.Controllers
             IQuestionStatus questionStatus = 
                 await questionHelper.GetQuestionStatusFromUserAsync(jwtHelper.GetUserFromJWT(gameSession.JWT));
 
-            await buzzHelper.BuzzAsync(user, questionStatus.question);
+            await buzzHelper.BuzzAsync(user, questionStatus.Question);
             await _hubContext.Clients.All.SendAsync(
-                $"User{await userHelper.GetAlexFromQuestionAsync(questionStatus.question)}", 
+                $"User{await userHelper.GetAlexFromQuestionAsync(questionStatus.Question)}", 
                 await userHelper.GetUserNameFromUserAsync(user));
 
             return new OkObjectResult(JsonConvert.SerializeObject(new { Success = true }));

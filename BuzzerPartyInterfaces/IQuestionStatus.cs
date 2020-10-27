@@ -2,10 +2,10 @@
 {
     public interface IQuestionStatus
     {
-        int currentQuestion { get; set; }
-        int questionCount { get; set; }
-        int question { get; set; }
-        bool answerable { get; set; }
-        bool userBuzzed { get; set; }
+        int CurrentQuestion { get; set; }
+        int QuestionCount { get; set; }
+        int Question { get; set; }
+        bool Answerable { get; set; }
+        bool UserBuzzed { get; set; }
     }
 }

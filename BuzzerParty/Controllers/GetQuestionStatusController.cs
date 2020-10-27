@@ -29,9 +29,9 @@ namespace BuzzerParty.Controllers
 
             var returnObject = new
             {
-                Question = questionStatus.question,
-                Answerable = questionStatus.answerable,
-                UserBuzzed = questionStatus.userBuzzed
+                questionStatus.Question,
+                questionStatus.Answerable,
+                questionStatus.UserBuzzed
             };
 
             return (ActionResult)new OkObjectResult(JsonConvert.SerializeObject(returnObject));

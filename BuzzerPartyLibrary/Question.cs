@@ -40,16 +40,16 @@ namespace BuzzerPartyLibrary
                 {
                     while (dataReader.Read())
                     {
-                        questionStatus.question = Convert.ToInt32(dataReader["Question"]);
-                        questionStatus.answerable = Convert.ToInt32(dataReader["Answerable"]) == 1 ? true : false;
-                        questionStatus.userBuzzed = Convert.ToInt32(dataReader["UserBuzzed"]) == 1 ? true : false;
+                        questionStatus.Question = Convert.ToInt32(dataReader["Question"]);
+                        questionStatus.Answerable = Convert.ToInt32(dataReader["Answerable"]) == 1 ? true : false;
+                        questionStatus.UserBuzzed = Convert.ToInt32(dataReader["UserBuzzed"]) == 1 ? true : false;
                     }
                 }
                 else
                 {
-                    questionStatus.question = 0;
-                    questionStatus.answerable = false;
-                    questionStatus.userBuzzed = false;
+                    questionStatus.Question = 0;
+                    questionStatus.Answerable = false;
+                    questionStatus.UserBuzzed = false;
                 }
                 return questionStatus;
             }
